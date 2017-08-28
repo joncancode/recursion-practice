@@ -88,24 +88,23 @@
 
 //Exercise 5 - String Splitter
 
-function splitter(str) {
-  if (!str.includes(" ")) {
+function splitter(str, sep) {
+  if (!str.includes(sep)) {
     // console.log('base')
-    return ""
+    return [str];
   }
   var n = str.search(" ")
-
   const sliced = str.slice(n + 1)
   const newStr = str.slice(0, n)
 
-  var arr = [newStr, ...splitter(sliced)]
-
-  console.log('arr ', arr)
+  var arr = [newStr, ...splitter(sliced, sep)]
+  console.log([str], 'arr str')
+  // console.log('arr ', arr);
   return arr
 }
 
 
-console.log(splitter("one two three four"))
+console.log(splitter("one two three four", ' '))
 
 
 
