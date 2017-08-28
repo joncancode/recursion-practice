@@ -50,15 +50,15 @@
 // 3. rec input = 'hello', 'hell'
 // 4. rec output = 'o', 'l'
 
-function stringReverse(str) {
-  if (str.length < 2) {
-    return str;
-  }
-  console.log(str[0], '0');
-  console.log(str.slice(1), 'slice')
-  console.log(str.slice(1) + str[0], 'added');
-  return stringReverse(str.slice(1)) + str[0];
-} 
+// function stringReverse(str) {
+//   if (str.length < 2) {
+//     return str;
+//   }
+//   console.log(str[0], '0');
+//   console.log(str.slice(1), 'slice')
+//   console.log(str.slice(1) + str[0], 'added');
+//   return stringReverse(str.slice(1)) + str[0];
+// } 
 
 // find the last letter of old string
 // add last letter to a new string
@@ -71,19 +71,47 @@ function stringReverse(str) {
 // 3. rec input = number of *
 // 4. rec output = *
 
-function triangle(n) {
-  if(n === 0) {
-    return '';
+// function triangle(n) {
+//   if(n === 0) {
+//     return '';
+//   }
+//   const star = ' *';
+//   // const space = ' ';
+//   // star.repeat(n);
+//   // console.log(n);
+//   console.log(star.repeat(n))
+//   return triangle(n-1);
+//}
+
+// console.log(triangle(5));
+
+
+//Exercise 5 - String Splitter
+
+function splitter(str) {
+  if (!str.includes(" ")) {
+    // console.log('base')
+    return ""
   }
-  const star = ' *';
-  // const space = ' ';
-  // star.repeat(n);
-  // console.log(n);
-  console.log(star.repeat(n))
-  return triangle(n-1);
+  var n = str.search(" ")
+
+  const sliced = str.slice(n + 1)
+  const newStr = str.slice(0, n)
+
+  var arr = [newStr, ...splitter(sliced)]
+
+  console.log('arr ', arr)
+  return arr
 }
 
-console.log(triangle(5));
+
+console.log(splitter("one two three four"))
+
+
+
+
+
+
 
 
   </script>
